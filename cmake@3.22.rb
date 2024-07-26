@@ -9,9 +9,6 @@ class CmakeAT322 < Formula
 
   conflicts_with "cmake", because: "it conflicts with the newer version of cmake"
 
-  # The "latest" release on GitHub has been an unstable version before, and
-  # there have been delays between the creation of a tag and the corresponding
-  # release, so we check the website's downloads page instead.
   livecheck do
     url "https://cmake.org/download/"
     regex(/href=.*?cmake[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -21,7 +18,7 @@ class CmakeAT322 < Formula
 
   def install
     args = %W[
-      --prefix=#{HOMEBREW_PREFIX}
+      --prefix=#{prefix}
       --no-system-libs
       --parallel=#{ENV.make_jobs}
       --datadir=/share/cmake
@@ -39,9 +36,6 @@ class CmakeAT322 < Formula
     system "make"
     system "make", "install"
 
-    # Symlink the cmake files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{prefix}/lib/pkgconfig/*"]
-
     # Remove conflicting symlinks if they exist.
     rm_rf %W[
       #{bin}/ccmake
@@ -50,9 +44,8 @@ class CmakeAT322 < Formula
       #{bin}/ctest
     ]
 
-    # Install versioned and unversioned symlinks.
+    # Install unversioned symlinks.
     %w[ccmake cmake cpack ctest].each do |prog|
-      bin.install_symlink "#{prefix}/bin/#{prog}" => "#{prog}#{version.major_minor}"
       bin.install_symlink "#{prefix}/bin/#{prog}" => prog
     end
   end
@@ -61,7 +54,7 @@ class CmakeAT322 < Formula
     <<~EOS
       This version of CMake conflicts with the upstream cmake.
       If you are using this, we assume it is because you wish to compile older Qt frameworks.
-      Unversioned and versioned symlinks for cmake, ccmake, cpack, and ctest have been installed into:
+      Unversioned symlinks for cmake, ccmake, cpack, and ctest have been installed into:
         #{opt_bin}
     EOS
   end
