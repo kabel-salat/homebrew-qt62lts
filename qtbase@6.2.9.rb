@@ -73,7 +73,7 @@ class QtbaseAT629 < Formula
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/prevent_cmake_symlink_empty_failure.patch?full_index=1"
-    sha256 "7673797fb2665a97776766f2bab1947cfe2f06327b638f14aebceb08afc082e7"
+    sha256 "685924eff10f3a0094e575ccbc3fca7d6e84ad0ed9f523495fe80bd8d233f293"
     directory "."
   end
 
