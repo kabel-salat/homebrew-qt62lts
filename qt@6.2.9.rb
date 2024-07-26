@@ -14,7 +14,6 @@ class QtAT629 < Formula
   depends_on "cmake@3.22" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
   depends_on "vulkan-headers" => [:build, :test]
   depends_on "vulkan-loader" => [:build, :test]
   depends_on "molten-vk" => [:build, :test]
@@ -30,6 +29,7 @@ class QtAT629 < Formula
   depends_on "openssl@1.1"
   depends_on "libb2"
   depends_on "md4c"
+  depends_on "python@3.9"
   depends_on "dbus"
   depends_on "brotli"
   depends_on "double-conversion"
@@ -39,6 +39,7 @@ class QtAT629 < Formula
   depends_on "mysql@5.7"
   depends_on "icu4c"
   depends_on "jpeg-turbo"
+  depends_on "libiodbc"
   depends_on "libpng"
   depends_on "pcre2"
   depends_on "zstd"
@@ -88,7 +89,7 @@ class QtAT629 < Formula
       -system-libb2
       -system-zlib
       -prefix #{HOMEBREW_PREFIX}
-      -extprefix #{HOMEBREW_PREFIX}/Qt-6.2.9
+      -extprefix #{prefix}
       -archdatadir share/qt
       -datadir share/qt
       -hostdatadir share/qt/mkspecs
@@ -108,11 +109,6 @@ class QtAT629 < Formula
       -DQT_FEATURE_relocatable=OFF
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14
       -DCMAKE_VERBOSE_MAKEFILE=ON
-      -DODBC_ROOT="${HOMEBREW_PREFIX}/opt/libiodbc"
-      -DPostgreSQL_ROOT="${HOMEBREW_PREFIX}/opt/postgresql@9.6"
-      -DSQLite3_ROOT="${HOMEBREW_PREFIX}/opt/sqlite"
-      -DMySQL_ROOT="${HOMEBREW_PREFIX}/opt/mysql@5.7"
-      -DOPENSSL_ROOT_DIR="${HOMEBREW_PREFIX}/opt/openssl@1.1"
       -DQT_FEATURE_system_harfbuzz=ON 
     ]
 
