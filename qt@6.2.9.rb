@@ -108,11 +108,11 @@ class QtAT629 < Formula
       -DQT_FEATURE_relocatable=OFF
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14
       -DCMAKE_VERBOSE_MAKEFILE=ON
-      -DODBC_ROOT="#{HOMEBREW_PREFIX}/opt/libiodbc"
-      -DPostgreSQL_ROOT="#{HOMEBREW_PREFIX}/opt/postgresql@9.6"
-      -DSQLite3_ROOT="#{HOMEBREW_PREFIX}/opt/sqlite"
-      -DMySQL_ROOT="#{HOMEBREW_PREFIX}/opt/mysql@5.7"
-      -DOPENSSL_ROOT_DIR="#{HOMEBREW_PREFIX}/opt/openssl@1.1"
+      -DODBC_ROOT="${HOMEBREW_PREFIX}/opt/libiodbc"
+      -DPostgreSQL_ROOT="${HOMEBREW_PREFIX}/opt/postgresql@9.6"
+      -DSQLite3_ROOT="${HOMEBREW_PREFIX}/opt/sqlite"
+      -DMySQL_ROOT="${HOMEBREW_PREFIX}/opt/mysql@5.7"
+      -DOPENSSL_ROOT_DIR="${HOMEBREW_PREFIX}/opt/openssl@1.1"
       -DQT_FEATURE_system_harfbuzz=ON 
     ]
 
