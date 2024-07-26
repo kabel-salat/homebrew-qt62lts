@@ -30,6 +30,7 @@ class QtbaseAT629 < Formula
   # haha ha 
   depends_on "postgresql@9.6"
   depends_on "openssl@1.1"
+  depends_on "mysql@5.7"
   depends_on "libb2"
   depends_on "md4c"
   depends_on "dbus"
@@ -38,7 +39,6 @@ class QtbaseAT629 < Formula
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "sqlite"
-  depends_on "mysql"
   depends_on "icu4c"
   depends_on "jpeg-turbo"
   depends_on "libpng"
