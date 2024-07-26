@@ -109,8 +109,8 @@ class QtbaseAT629 < Formula
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %w[
       -DFEATURE_pkg_config=ON \
       -DQT_FEATURE_relocatable=ON \
-      -DCMAKE_OSX_ARCHITECTURES="x86_64" \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET="10.14.0" \
+      -DCMAKE_OSX_ARCHITECTURES=x86_64 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14 \
       -DCMAKE_VERBOSE_MAKEFILE=ON \
       -DODBC_ROOT=/usr/local/opt/libiodbc \
       -DPostgreSQL_ROOT=/usr/local/opt/postgresql@9.6 \
