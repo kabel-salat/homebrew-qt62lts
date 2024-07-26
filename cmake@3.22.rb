@@ -40,6 +40,9 @@ class CmakeAT322 < Formula
     system "make"
     system "make", "install"
 
+  end
+
+  def post_install
     %w[ccmake cmake cpack ctest].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
