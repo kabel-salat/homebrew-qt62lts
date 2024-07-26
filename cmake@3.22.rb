@@ -46,7 +46,7 @@ class CmakeAT322 < Formula
 
     # Install unversioned symlinks.
     %w[ccmake cmake cpack ctest].each do |prog|
-      bin.install_symlink "#{prefix}/bin/#{prog}" => prog
+      bin.install_symlink "#{bin}/#{prog}" => prog
     end
   end
 
