@@ -40,8 +40,6 @@ class PostgresqlAT96 < Formula
       --with-pam
       --with-perl
       --with-python
-      PYTHON=#{Formula["python@3.9"].opt_bin/"python3"}
-      XML2_CONFIG=:
     ]
 
     # Add include and library directories of dependencies, so that
@@ -57,7 +55,6 @@ class PostgresqlAT96 < Formula
 
     extra_version = ""
     extra_version += "+git" if build.head?
-    extra_version += " (Homebrew petere/postgresql)"
     args << "--with-extra-version=#{extra_version}"
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
