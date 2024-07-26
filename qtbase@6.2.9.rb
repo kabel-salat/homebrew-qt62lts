@@ -82,19 +82,19 @@ class QtbaseAT629 < Formula
     ENV.runtime_cpu_detection
 
     config_args = %W[
-      -system-freetype \
-      -system-harfbuzz \
-      -system-sqlite \
-      -system-libb2 \
-      -system-zlib \
-      -prefix #{HOMEBREW_PREFIX} \
-      -extprefix #{HOMEBREW_PREFIX}/Qt6 \
-      -archdatadir share/qt \
-      -datadir share/qt \
-      -hostdatadir share/qt/mkspecs \
-      -nomake examples \
-      -release \
-      -headersclean \
+      -system-freetype
+      -system-harfbuzz
+      -system-sqlite
+      -system-libb2
+      -system-zlib
+      -prefix #{HOMEBREW_PREFIX}
+      -extprefix #{prefix}
+      -archdatadir share/qt
+      -datadir share/qt
+      -hostdatadir share/qt/mkspecs
+      -nomake examples
+      -release
+      -headersclean
       -framework 
     ]
 
@@ -104,16 +104,16 @@ class QtbaseAT629 < Formula
     # We disable clang feature to avoid linkage to `llvm`. This is how we have always
     # built on macOS and it prevents complicating `llvm` version bumps on Linux.
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %w[
-      -DFEATURE_pkg_config=ON \
-      -DQT_FEATURE_relocatable=OFF \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14 \
-      -DCMAKE_VERBOSE_MAKEFILE=ON \
-      -DODBC_ROOT=/usr/local/opt/libiodbc \
-      -DPostgreSQL_ROOT=/usr/local/opt/postgresql@9.6 \
-      -DSQLite3_ROOT=/usr/local/opt/sqlite \
-      -DMySQL_ROOT=/usr/local/opt/mysql@5.7 \
-      -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1 \
-      -Dmd4c_DIR=/usr/local/opt/md4c \
+      -DFEATURE_pkg_config=ON
+      -DQT_FEATURE_relocatable=OFF
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14
+      -DCMAKE_VERBOSE_MAKEFILE=ON
+      -DODBC_ROOT=/usr/local/opt/libiodbc
+      -DPostgreSQL_ROOT=/usr/local/opt/postgresql@9.6
+      -DSQLite3_ROOT=/usr/local/opt/sqlite
+      -DMySQL_ROOT=/usr/local/opt/mysql@5.7
+      -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1
+      -Dmd4c_DIR=/usr/local/opt/md4c
       -DQT_FEATURE_system_harfbuzz=ON 
     ]
 
