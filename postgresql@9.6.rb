@@ -22,7 +22,6 @@ class PostgresqlAT96 < Formula
   depends_on "gettext"
   depends_on "openldap"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
   depends_on "readline"
 
   def install
@@ -39,7 +38,7 @@ class PostgresqlAT96 < Formula
       --with-uuid=e2fs
       --with-pam
       --with-perl
-      --with-python
+      XML2_CONFIG=:
     ]
 
     # Add include and library directories of dependencies, so that
@@ -51,11 +50,7 @@ class PostgresqlAT96 < Formula
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
-    args << "--enable-cassert" if build.with? "cassert"
-
     extra_version = ""
-    extra_version += "+git" if build.head?
-    args << "--with-extra-version=#{extra_version}"
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
