@@ -1,4 +1,4 @@
-class CmakeAT322 < Formula
+class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
   version "3.22.1"
@@ -18,44 +18,33 @@ class CmakeAT322 < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix}
+      --prefix=#{HOMEBREW_PREFIX}
       --no-system-libs
       --parallel=#{ENV.make_jobs}
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
-      --system-zlib
-      --system-bzip2
-      --system-curl
     ]
+    if OS.mac?
+      args += %w[
+        --system-zlib
+        --system-bzip2
+        --system-curl
+      ]
+    end
 
     system "./bootstrap", *args, "--", *std_cmake_args,
-                                      "-DCMake_INSTALL_BASH_COMP_DIR=#{bash_completion}",
-                                      "-DCMake_INSTALL_EMACS_DIR=#{elisp}",
-                                      "-DCMake_BUILD_LTO=ON"
+                                       "-DCMake_INSTALL_BASH_COMP_DIR=#{bash_completion}",
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}",
+                                       "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
-
-    # Remove conflicting symlinks if they exist.
-    rm_rf %W[
-      #{bin}/ccmake
-      #{bin}/cmake
-      #{bin}/cpack
-      #{bin}/ctest
-    ]
-
-    # Install unversioned symlinks.
-    %w[ccmake cmake cpack ctest].each do |prog|
-      bin.install_symlink "#{bin}/#{prog}" => prog
-    end
   end
 
   def caveats
     <<~EOS
-      This version of CMake conflicts with the upstream cmake.
-      If you are using this, we assume it is because you wish to compile older Qt frameworks.
-      Unversioned symlinks for cmake, ccmake, cpack, and ctest have been installed into:
-        #{opt_bin}
+      To install the CMake documentation, run:
+        brew install cmake-docs
     EOS
   end
 
@@ -63,10 +52,8 @@ class CmakeAT322 < Formula
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
     system bin/"cmake", "."
 
-    # Verify that the binary symlinks work.
-    assert_predicate bin/"cmake", :exist?
-    assert_predicate bin/"ccmake", :exist?
-    assert_predicate bin/"cpack", :exist?
-    assert_predicate bin/"ctest", :exist?
+    # These should be supplied in a separate cmake-docs formula.
+    refute_path_exists doc/"html"
+    refute_path_exists man
   end
 end
