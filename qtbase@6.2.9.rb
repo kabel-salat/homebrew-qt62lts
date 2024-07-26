@@ -55,7 +55,7 @@ class QtbaseAT629 < Formula
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_molten_vk_header_path.patch?full_index=1"
-    sha256 "580858d427ccef557dc01a3ad2e9da20e2ef18530f323f3d1c78ae7381adf344"
+    sha256 "8e109f34ea4df370eabcf8b36549a044437fe696a2529c964fc5e3e3bfdd8b62"
     directory "."
   end
 
