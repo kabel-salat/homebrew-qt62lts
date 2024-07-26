@@ -67,7 +67,7 @@ class QtbaseAT629 < Formula
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/modify_pkgconfig_to_allow_unofficial_brew.patch?full_index=1"
-    sha256 "d4c47d56962d18a7c9c4df552c7cb315d2ead72395fc07a76e0195c11aaaed8b"
+    sha256 "31d1e13d60089b2675ac112fed153ea12f3071add917970646e958db0ce2a113"
     directory "."
   end
 
