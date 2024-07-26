@@ -3,7 +3,7 @@ class CmakeAT322 < Formula
   homepage "https://www.cmake.org/"
   version "3.22.1"
   url "https://github.com/Kitware/CMake/releases/download/v#{version}/cmake-#{version}.tar.gz"
-  sha256 "3c1c478b9650b107d452c5bd545c72e2fad4e37c09b89a1984b9a2f46df6aced"
+  sha256 "0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
