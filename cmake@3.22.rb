@@ -1,4 +1,4 @@
-class Cmake < Formula
+class CmakeAT322 < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
   version "3.22.1"
