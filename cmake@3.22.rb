@@ -3,7 +3,7 @@ class CmakeAT322 < Formula
   homepage "https://www.cmake.org/"
   version "3.22.1"
   url "https://github.com/Kitware/CMake/releases/download/v#{version}/cmake-#{version}.tar.gz"
-  sha256 "0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0"
+  sha256 "3c1c478b9650b107d452c5bd545c72e2fad4e37c09b89a1984b9a2f46df6aced"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -50,9 +50,8 @@ class CmakeAT322 < Formula
       #{bin}/ctest
     ]
 
-    # Install versioned and unversioned symlinks.
+    # Install unversioned symlinks.
     %w[ccmake cmake cpack ctest].each do |prog|
-      bin.install_symlink "#{prefix}/bin/#{prog}" => "#{prog}#{version.major_minor}"
       bin.install_symlink "#{prefix}/bin/#{prog}" => prog
     end
   end
@@ -61,7 +60,7 @@ class CmakeAT322 < Formula
     <<~EOS
       This version of CMake conflicts with the upstream cmake.
       If you are using this, we assume it is because you wish to compile older Qt frameworks.
-      Unversioned and versioned symlinks for cmake, ccmake, cpack, and ctest have been installed into:
+      Unversioned symlinks for cmake, ccmake, cpack, and ctest have been installed into:
         #{opt_bin}
     EOS
   end
