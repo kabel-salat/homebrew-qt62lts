@@ -56,25 +56,21 @@ class QtbaseAT629 < Formula
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_molten_vk_header_path.patch?full_index=1"
     sha256 "8e109f34ea4df370eabcf8b36549a044437fe696a2529c964fc5e3e3bfdd8b62"
-    directory "."
   end
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_zstd_cmake_handling.patch?full_index=1"
     sha256 "efae6b2e8479552f7021763738ccea4a6d26923defc8aee625facd60cf68d7cf"
-    directory "."
   end
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/modify_pkgconfig_to_allow_unofficial_brew.patch?full_index=1"
     sha256 "31d1e13d60089b2675ac112fed153ea12f3071add917970646e958db0ce2a113"
-    directory "."
   end
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/prevent_cmake_symlink_empty_failure.patch?full_index=1"
     sha256 "685924eff10f3a0094e575ccbc3fca7d6e84ad0ed9f523495fe80bd8d233f293"
-    directory "."
   end
 
   def install
