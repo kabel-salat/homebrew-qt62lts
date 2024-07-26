@@ -1,5 +1,6 @@
 {
     "postgresql-9.6": "postgresql@9.6",
-    "cmake-3.22": "cmake@3.22"
+    "cmake-3.22": "cmake@3.22",
+    "qtbase-6.2.9": "qtbase@6.2.9"
   }
   
