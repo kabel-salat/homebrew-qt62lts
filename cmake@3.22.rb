@@ -39,7 +39,6 @@ class CmakeAT322 < Formula
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
-  end
 
   %w[ccmake cmake cpack ctest].each do |e|
     (HOMEBREW_PREFIX/"bin").install_symlink => bin/e
