@@ -61,7 +61,7 @@ class QtbaseAT629 < Formula
 
   patch do
     url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_zstd_cmake_handling.patch?full_index=1"
-    sha256 "b5650d5b0226e5cc00de3c0d29f10069527e722f4e141765f7fbeb69de2cc40d"
+    sha256 "efae6b2e8479552f7021763738ccea4a6d26923defc8aee625facd60cf68d7cf"
     directory "."
   end
 
