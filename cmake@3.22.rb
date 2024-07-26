@@ -18,7 +18,7 @@ class Cmake < Formula
 
   def install
     args = %W[
-      --prefix=#{HOMEBREW_PREFIX}
+      --prefix=#{prefix}
       --no-system-libs
       --parallel=#{ENV.make_jobs}
       --datadir=/share/cmake
@@ -39,6 +39,10 @@ class Cmake < Formula
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
+  end
+
+  %w[ccmake cmake cpack ctest].each do |e|
+    (HOMEBREW_PREFIX/"bin").install_symlink => bin/e
   end
 
   def caveats
