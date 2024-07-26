@@ -88,14 +88,12 @@ class QtbaseAT629 < Formula
       -system-libb2 \
       -system-zlib \
       -prefix #{prefix}
-      -extprefix #{prefix}/Qt-6.2.9
+      -extprefix #{prefix}/Qt6
       -archdatadir share/qt \
       -datadir share/qt \
       -hostdatadir share/qt/mkspecs \
       -nomake examples \
       -release \
-      -force-debug-info \
-      -separate-debug-info \
       -headersclean \
       -framework 
     ]
@@ -123,7 +121,7 @@ class QtbaseAT629 < Formula
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
+    # inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
 
     return unless OS.mac?
 
