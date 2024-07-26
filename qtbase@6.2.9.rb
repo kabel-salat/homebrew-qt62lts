@@ -1,5 +1,4 @@
 class QtbaseAT629 < Formula
-  include Language::Python::Virtualenv
 
   desc "Qt 6.2.9 LTS Base Framework"
   homepage "https://www.qt.io/"
@@ -126,7 +125,6 @@ class QtbaseAT629 < Formula
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
 
     return unless OS.mac?
 
