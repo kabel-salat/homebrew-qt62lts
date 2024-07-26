@@ -40,8 +40,9 @@ class CmakeAT322 < Formula
     system "make"
     system "make", "install"
 
-  %w[ccmake cmake cpack ctest].each do |e|
-    (HOMEBREW_PREFIX/"bin").install_symlink => bin/e
+    %w[ccmake cmake cpack ctest].each do |e|
+      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
+    end
   end
 
   def caveats
