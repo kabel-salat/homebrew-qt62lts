@@ -1,5 +1,4 @@
 class QtbaseAT629 < Formula
-
   desc "Qt 6.2.9 LTS Base Framework"
   homepage "https://www.qt.io/"
   url "https://github.com/qt/qtbase/archive/refs/tags/v6.2.9-lts-lgpl.tar.gz"
@@ -108,8 +107,7 @@ class QtbaseAT629 < Formula
     # built on macOS and it prevents complicating `llvm` version bumps on Linux.
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %w[
       -DFEATURE_pkg_config=ON \
-      -DQT_FEATURE_relocatable=ON \
-      -DCMAKE_OSX_ARCHITECTURES=x86_64 \
+      -DQT_FEATURE_relocatable=OFF \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14 \
       -DCMAKE_VERBOSE_MAKEFILE=ON \
       -DODBC_ROOT=/usr/local/opt/libiodbc \
