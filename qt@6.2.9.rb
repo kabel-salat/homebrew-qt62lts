@@ -1,4 +1,4 @@
-class QtbaseAT629 < Formula
+class QtAT629 < Formula
   desc "Qt 6.2.9 LTS Base Framework"
   homepage "https://www.qt.io/"
   url "https://github.com/qt/qtbase/archive/refs/tags/v6.2.9-lts-lgpl.tar.gz"
@@ -88,7 +88,7 @@ class QtbaseAT629 < Formula
       -system-libb2
       -system-zlib
       -prefix #{HOMEBREW_PREFIX}
-      -extprefix #{prefix}
+      -extprefix #{HOMEBREW_PREFIX}/Qt-6.2.9
       -archdatadir share/qt
       -datadir share/qt
       -hostdatadir share/qt/mkspecs
