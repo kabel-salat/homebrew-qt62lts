@@ -87,8 +87,8 @@ class QtbaseAT629 < Formula
       -system-sqlite \
       -system-libb2 \
       -system-zlib \
-      -prefix #{HOMEBREW_PREFIX}
-      -extprefix #{prefix}
+      -prefix #{prefix}
+      -extprefix #{prefix}/Qt-6.2.9
       -archdatadir share/qt \
       -datadir share/qt \
       -hostdatadir share/qt/mkspecs \
@@ -123,6 +123,7 @@ class QtbaseAT629 < Formula
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
 
     return unless OS.mac?
 
