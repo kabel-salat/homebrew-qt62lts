@@ -38,7 +38,7 @@ class QtbaseAT629 < Formula
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "sqlite"
-  depends_on "mysql"
+  depends_on "mysql@5.7"
   depends_on "icu4c"
   depends_on "jpeg-turbo"
   depends_on "libpng"
