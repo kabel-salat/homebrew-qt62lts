@@ -30,7 +30,6 @@ class QtbaseAT629 < Formula
   # haha ha 
   depends_on "postgresql@9.6"
   depends_on "openssl@1.1"
-  depends_on "mysql@5.7"
   depends_on "libb2"
   depends_on "md4c"
   depends_on "dbus"
@@ -39,6 +38,7 @@ class QtbaseAT629 < Formula
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "sqlite"
+  depends_on "mysql"
   depends_on "icu4c"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -54,23 +54,27 @@ class QtbaseAT629 < Formula
   fails_with gcc: "5"
 
   patch do
-    url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_molten_vk_header_path.patch?full_index=1"
-    sha256 "8e109f34ea4df370eabcf8b36549a044437fe696a2529c964fc5e3e3bfdd8b62"
+    url "https://almostd.one/musescore4/qt62lts/patches/qt6/qtbase/fix_molten_vk_header_path.patch"
+    sha256 "580858d427ccef557dc01a3ad2e9da20e2ef18530f323f3d1c78ae7381adf344"
+    directory "."
   end
 
   patch do
-    url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/fix_zstd_cmake_handling.patch?full_index=1"
-    sha256 "efae6b2e8479552f7021763738ccea4a6d26923defc8aee625facd60cf68d7cf"
+    url "https://almostd.one/musescore4/qt62lts/patches/qt6/qtbase/fix_zstd_cmake_handling.patch"
+    sha256 "b5650d5b0226e5cc00de3c0d29f10069527e722f4e141765f7fbeb69de2cc40d"
+    directory "."
   end
 
   patch do
-    url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/modify_pkgconfig_to_allow_unofficial_brew.patch?full_index=1"
-    sha256 "31d1e13d60089b2675ac112fed153ea12f3071add917970646e958db0ce2a113"
+    url "https://almostd.one/musescore4/qt62lts/patches/qt6/qtbase/modify_pkgconfig_to_allow_unofficial_brew.patch"
+    sha256 "d4c47d56962d18a7c9c4df552c7cb315d2ead72395fc07a76e0195c11aaaed8b"
+    directory "."
   end
 
   patch do
-    url "https://github.com/kabel-salat/qt62lts/blob/main/qtbase/prevent_cmake_symlink_empty_failure.patch?full_index=1"
-    sha256 "685924eff10f3a0094e575ccbc3fca7d6e84ad0ed9f523495fe80bd8d233f293"
+    url "https://almostd.one/musescore4/qt62lts/patches/qt6/qtbase/prevent_cmake_symlink_empty_failure.patch"
+    sha256 "7673797fb2665a97776766f2bab1947cfe2f06327b638f14aebceb08afc082e7"
+    directory "."
   end
 
   def install
