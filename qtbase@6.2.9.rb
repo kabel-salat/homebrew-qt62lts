@@ -87,8 +87,8 @@ class QtbaseAT629 < Formula
       -system-sqlite \
       -system-libb2 \
       -system-zlib \
-      -prefix #{prefix}
-      -extprefix #{prefix}/Qt6
+      -prefix #{HOMEBREW_PREFIX} \
+      -extprefix Qt6
       -archdatadir share/qt \
       -datadir share/qt \
       -hostdatadir share/qt/mkspecs \
