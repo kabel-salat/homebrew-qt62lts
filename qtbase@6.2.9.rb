@@ -1,4 +1,4 @@
-class QTBaseAT629 < Formula
+class QtbaseAT629 < Formula
   include Language::Python::Virtualenv
 
   desc "Qt 6.2.9 LTS Base Framework"
