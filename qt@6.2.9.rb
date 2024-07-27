@@ -150,6 +150,30 @@ class QtAT629 < Formula
     end
   end
 
+  def post_install
+    qtmodules_dir = prefix/"qtmodules"
+  
+    qt5compat_url = "https://github.com/qt/qt5compat/archive/refs/tags/v6.2.9-lts-lgpl.tar.gz"
+    qt5compat_sha = "7c99cecf7dd583e969b28b007fab124d6e29be606082e789d5d06558092a771e"
+  
+    if build.with? "qt5compat"
+      resource("qt5compat") do
+        url qt5compat_url
+        sha256 qt5compat_sha
+      end
+  
+      qt5compat_dir = qtmodules_dir/"qt5compat"
+      qt5compat_dir.mkpath
+      resource("qt5compat").stage(qt5compat_dir)
+  
+      cd qt5compat_dir do
+        system "qt-configure-module", ".", "--", *std_cmake_args
+        system "cmake", "--build", "."
+        system "cmake", "--install", "."
+      end
+    end
+  end
+
   def caveats
     <<~EOS
       You can add Homebrew's Qt to QtCreator's "Qt Versions" in:
