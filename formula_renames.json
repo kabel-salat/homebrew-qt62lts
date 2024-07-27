@@ -8,6 +8,7 @@
     "qtdeclarative-6.2.9": "qtdeclarative@6.2.9",
     "qtsvg-6.2.9": "qtsvg@6.2.9",
     "qtquicktimeline-6.2.9": "qtquicktimeline@6.2.9",
-    "qtquick3d-6.2.9": "qtquick3d@6.2.9"
+    "qtquick3d-6.2.9": "qtquick3d@6.2.9",
+    "qtshadertools-6.2.9": "qtshadertools@6.2.9"
   }
   
