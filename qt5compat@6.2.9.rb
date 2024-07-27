@@ -14,7 +14,9 @@ class Qt5compatAT629 < Formula
   depends_on "cmake@3.22" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  
   depends_on "qt@6.2.9"
+  depends_on "libiconv"
 
   def install
     qt_prefix = Formula["qt@6.2.9"].opt_prefix
