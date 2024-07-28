@@ -11,7 +11,7 @@ class QtAT629 < Formula
     "LGPL-3.0-only",
   ]
 
-  option "with-qt5compat", "Build with Qt5 compatibility module"
+  #option "with-qt5compat", "Build with Qt5 compatibility module"
 
   depends_on "cmake@3.22" => [:build, :test]
   depends_on "ninja" => :build
