@@ -17,7 +17,7 @@ class QtshadertoolsAT629 < Formula
   depends_on "qt@6.2.9"
 
   def install
-    qt_prefix = Formula["qt@6.2.9"].opt_prefix
+    qt_prefix = Formula["qt@6.2.9"].prefix
 
     mkdir "build" do
       system "qt-configure-module", "..", "--", "-DCMAKE_INSTALL_PREFIX=#{qt_prefix}", *std_cmake_args
@@ -36,7 +36,7 @@ class QtshadertoolsAT629 < Formula
       }
     EOS
 
-    qt_prefix = Formula["qt@6.2.9"].opt_prefix
+    qt_prefix = Formula["qt@6.2.9"].prefix
     system ENV.cxx, "test.cpp", "-I#{qt_prefix}/include", "-I#{qt_prefix}/include/QtShaderTools", "-L#{qt_prefix}/lib", "-lQt6ShaderTools", "-o", "test"
     system "./test"
   end
